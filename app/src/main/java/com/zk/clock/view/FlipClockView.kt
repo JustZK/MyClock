@@ -84,10 +84,10 @@ class FlipClockView : FrameLayout {
 
             val shadePaintColor = a.getColor(R.styleable.FlipClockView_shadePaintColor, Color.BLACK)
             mShadePaint.color = shadePaintColor
-            mShadePaint.style = Paint.Style.FILL
+//            mShadePaint.style = Paint.Style.FILL
             val shinePaintColor = a.getColor(R.styleable.FlipClockView_shinePaintColor, Color.WHITE)
             mShinePaint.color = shinePaintColor
-            mShinePaint.style = Paint.Style.FILL
+//            mShinePaint.style = Paint.Style.FILL
 
             a.recycle()
         }
@@ -168,8 +168,9 @@ class FlipClockView : FrameLayout {
     private fun drawFlipHalf(canvas: Canvas) {
         canvas.save()
         mCamera.save()
-        val view: View?
+        var view: View?
         val deg: Float = getDeg()
+        LogUtil.instance.d("deg ----- $deg")
         view = if (deg > 90) {
             canvas.clipRect(if (!isUpToDown) mTopRect else mBottomRect)
             mCamera.rotateX(if (!isUpToDown) deg - 180 else -(deg - 180))
@@ -182,6 +183,7 @@ class FlipClockView : FrameLayout {
         mCamera.getMatrix(mMatrix)
         positionMatrix()
         canvas.concat(mMatrix)
+
         if (view != null) {
             drawChild(canvas, view, 0)
         }
@@ -200,20 +202,20 @@ class FlipClockView : FrameLayout {
         // Log.d(TAG, "deg: " + degreesFlipped);
         if (degreesFlipped < 90) {
             val alpha = getAlpha(degreesFlipped)
-             LogUtil.instance.d("小于90度时的透明度-------------------> " + alpha);
+             LogUtil.instance.d("小于90度时的透明度------------------- $alpha");
             mShinePaint.alpha = alpha
             mShadePaint.alpha = alpha
-            canvas.drawRect(
-                if (!isUpToDown) mBottomRect else mTopRect,
+            canvas.drawRoundRect(
+                if (!isUpToDown) mBottomRect else mTopRect, 30f, 30f,
                 if (!isUpToDown) mShinePaint else mShadePaint
             )
         } else {
-            val alpha = getAlpha(Math.abs(degreesFlipped - 180)).toInt()
-            LogUtil.instance.d("大于90度时的透明度-------------> " + alpha);
+            val alpha = getAlpha(Math.abs(degreesFlipped - 180))
+            LogUtil.instance.d("大于90度时的透明度------------- $alpha" );
             mShadePaint.alpha = alpha
             mShinePaint.alpha = alpha
-            canvas.drawRect(
-                if (!isUpToDown) mTopRect else mBottomRect,
+            canvas.drawRoundRect(
+                if (!isUpToDown) mTopRect else mBottomRect, 30f, 30f,
                 if (!isUpToDown) mShadePaint else mShinePaint
             )
         }
