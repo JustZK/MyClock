@@ -34,7 +34,7 @@ class StrikethroughTextView : AppCompatTextView {
     }
 
     constructor(
-        context: Context?,
+        context: Context,
         middleWidthSize: Float,
         middleWidthColor: Int
     ) : super(context) {

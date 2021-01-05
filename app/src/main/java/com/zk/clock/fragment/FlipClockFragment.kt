@@ -44,9 +44,9 @@ class FlipClockFragment : Fragment(), OnUpTimeListener {
         mMinute = c[Calendar.MINUTE] //分
         mSecond = c[Calendar.SECOND] //秒
         val amOrPm = c[Calendar.AM_PM]
-        mBinding!!.fragmentFlipClockH.setFirstTextValue(mHour.toString())
-        mBinding!!.fragmentFlipClockM.setFirstTextValue(mMinute.toString())
-        mBinding!!.fragmentFlipClockS.setFirstTextValue(mSecond.toString())
+//        mBinding!!.fragmentFlipClockH.setFirstTextValue(mHour.toString())
+//        mBinding!!.fragmentFlipClockM.setFirstTextValue(mMinute.toString())
+//        mBinding!!.fragmentFlipClockS.setFirstTextValue(mSecond.toString())
         val mainActivity = activity as MainActivity
         mainActivity.addOnUpTimeListener(this)
         return mBinding!!.root
@@ -94,21 +94,21 @@ class FlipClockFragment : Fragment(), OnUpTimeListener {
                 val minute = bundle.getInt("minute")
                 val second = bundle.getInt("second")
 
-                if (mSecond != second){
-                    mSecond = second
-                    mBinding!!.fragmentFlipClockS.setTextValue(mSecond.toString())
-                    mBinding!!.fragmentFlipClockS.smoothFlip()
-                }
-                if(mMinute != minute){
-                    mMinute = minute
-                    mBinding!!.fragmentFlipClockM.setTextValue(mMinute.toString())
-                    mBinding!!.fragmentFlipClockM.smoothFlip()
-                }
-                if(mHour != hour) {
-                    mHour = hour
-                    mBinding!!.fragmentFlipClockH.setTextValue(mHour.toString())
-                    mBinding!!.fragmentFlipClockH.smoothFlip()
-                }
+//                if (mSecond != second){
+//                    mSecond = second
+//                    mBinding!!.fragmentFlipClockS.setTextValue(mSecond.toString())
+//                    mBinding!!.fragmentFlipClockS.smoothFlip()
+//                }
+//                if(mMinute != minute){
+//                    mMinute = minute
+//                    mBinding!!.fragmentFlipClockM.setTextValue(mMinute.toString())
+//                    mBinding!!.fragmentFlipClockM.smoothFlip()
+//                }
+//                if(mHour != hour) {
+//                    mHour = hour
+//                    mBinding!!.fragmentFlipClockH.setTextValue(mHour.toString())
+//                    mBinding!!.fragmentFlipClockH.smoothFlip()
+//                }
 
 
 

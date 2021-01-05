@@ -34,6 +34,7 @@ kapt {
 }
 
 dependencies {
+    implementation project(path: ':flipclock')
     def supportLibVersion = '28.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:${supportLibVersion}"
@@ -51,5 +52,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.zk.common:common:1.0.2'
+    implementation 'com.zk.common:common:1.1.0'
 }

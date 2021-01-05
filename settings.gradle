@@ -1,2 +1,3 @@
+include ':flipclock'
 include ':app'
 rootProject.name='My Clock'
